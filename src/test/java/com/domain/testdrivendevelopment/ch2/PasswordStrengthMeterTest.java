@@ -1,6 +1,7 @@
 package com.domain.testdrivendevelopment.ch2;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -64,5 +65,11 @@ public class PasswordStrengthMeterTest {
     @Test
     void meetsOnlyUpperCriteria_Then_Weak() {
         assertStrength("ABZEF", PasswordStrength.WEAK);
+    }
+
+    @Test
+    @DisplayName("아무 조건도 충족하지 않은 경우")
+    void meetsNoCriteria_Then_Weak() {
+        assertStrength("abc", PasswordStrength.WEAK);
     }
 }
